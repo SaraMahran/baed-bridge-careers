@@ -11,7 +11,6 @@ import {
   Briefcase,
   Heart,
   ArrowRight,
-  CheckCircle2,
   Accessibility,
   Globe,
   Lightbulb,
