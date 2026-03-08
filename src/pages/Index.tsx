@@ -8,7 +8,6 @@ import {
   Users,
   Compass,
   FileText,
-  Briefcase,
   Heart,
   ArrowRight,
   Accessibility,
