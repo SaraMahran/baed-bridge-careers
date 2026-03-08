@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Users, Accessibility, Lightbulb, Globe, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Users, Accessibility, Lightbulb, Globe, ArrowRight } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
