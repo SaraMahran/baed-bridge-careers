@@ -13,7 +13,13 @@ import Jobs from "./pages/Jobs";
 import AccessibilityResources from "./pages/AccessibilityResources";
 import Partnerships from "./pages/Partnerships";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import CareerMatch from "./pages/CareerMatch";
+import CourseDetail from "./pages/CourseDetail";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
+
 
 const queryClient = new QueryClient();
 
@@ -34,6 +40,11 @@ const App = () => (
           <Route path="/accessibility-resources" element={<AccessibilityResources />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/career-match" element={<CareerMatch />} />
+          <Route path="/courses/:slug" element={<CourseDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

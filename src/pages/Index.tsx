@@ -65,10 +65,10 @@ function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/courses">
-                <GraduationCap className="mr-2 h-5 w-5" />
-                Start Learning
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg">
+              <Link to="/career-match">
+                <Sparkles className="mr-2 h-5 w-5" />
+                Find My Career Match
               </Link>
             </Button>
             <Button variant="hero-outline" size="lg" asChild>
@@ -78,6 +78,14 @@ function HeroSection() {
               </Link>
             </Button>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-4 text-xs text-muted-foreground"
+          >
+            Powered by Gemini AI · Free · Takes 30 seconds
+          </motion.p>
         </div>
       </div>
     </section>

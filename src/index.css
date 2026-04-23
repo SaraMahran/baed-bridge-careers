@@ -10,10 +10,13 @@
     --background: 48 60% 97%;
     --foreground: 330 57% 18%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 330 57% 18%;
+    /* --card: 0 0% 100%;
+    --card-foreground: 330 57% 18%; */
 
-    --popover: 0 0% 100%;
+    --card: 54 94% 97%;
+
+    /* --popover: 0 0% 100%; */
+    --popover: 54 94% 97%;
     --popover-foreground: 330 57% 18%;
 
     /* Primary: #a0205b → deep magenta */

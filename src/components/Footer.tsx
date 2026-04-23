@@ -23,8 +23,8 @@ const footerSections = [
     links: [
       { label: "Accessibility Resources", href: "/accessibility-resources" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-of-service" },
     ],
   },
 ];
