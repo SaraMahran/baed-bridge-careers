@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, Sparkles, BookOpen, Briefcase, User, LogOut, GraduationCap, Building2, FileText, Star } from "lucide-react";
 
+type User = { name: string; email: string; role: string; };
 
 const dropdowns = [
   {
@@ -29,33 +30,85 @@ const standaloneLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Role-based dropdown menu items
+const getLearnerMenuItems = () => [
+  { icon: Sparkles, label: "Career Match AI", href: "/career-match", desc: "Find your perfect role" },
+  { icon: BookOpen, label: "My Courses", href: "/courses", desc: "Continue learning" },
+  { icon: Briefcase, label: "Job Board", href: "/jobs", desc: "Browse opportunities" },
+  { icon: FileText, label: "Mentorship", href: "/mentorship", desc: "Book a session" },
+];
+
+const getEmployerMenuItems = () => [
+  { icon: Briefcase, label: "Job Board", href: "/jobs", desc: "Post & manage listings" },
+  { icon: Building2, label: "For Employers", href: "/employers", desc: "Hiring resources" },
+  { icon: Star, label: "Partnerships", href: "/partnerships", desc: "Collaborate with us" },
+];
+
+const getInitials = (name: string) =>
+  name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+
+const getRoleColor = (role: string) => {
+  if (role === "Employer") return "bg-[#5f1a37] text-white";
+  if (role === "Admin") return "bg-[#230a14] text-white";
+  return "bg-primary/15 text-primary";
+};
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const navRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
+  // Read user from localStorage on mount and on location change
+  useEffect(() => {
+    const stored = localStorage.getItem("baed_user");
+    setUser(stored ? JSON.parse(stored) : null);
+  }, [location.pathname]);
+
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
+        setUserMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Close everything on route change
   useEffect(() => {
     setOpenDropdown(null);
     setMobileOpen(false);
+    setUserMenuOpen(false);
   }, [location.pathname]);
 
   const toggleDropdown = (label: string) => {
     setOpenDropdown(prev => prev === label ? null : label);
+    setUserMenuOpen(false);
+  };
+
+  const toggleUserMenu = () => {
+    setUserMenuOpen(prev => !prev);
+    setOpenDropdown(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("baed_user");
+    setUser(null);
+    setUserMenuOpen(false);
+    navigate("/");
   };
 
   const isDropdownActive = (dropdown: typeof dropdowns[0]) =>
     dropdown.items.some((item) => location.pathname === item.href);
+
+  const menuItems = user?.role === "Employer" ? getEmployerMenuItems() : getLearnerMenuItems();
 
   return (
     <nav
@@ -65,15 +118,12 @@ export function Navbar() {
       aria-label="Main navigation"
     >
       <div className="container flex items-center justify-between h-16">
-        <Link
-          to="/"
-          className="font-display text-xl font-bold text-navbar-foreground tracking-tight"
-          aria-label="Baed Connect - Home"
-        >
+        {/* Logo */}
+        <Link to="/" className="font-display text-xl font-bold text-navbar-foreground tracking-tight" aria-label="Baed Connect - Home">
           Baed<span className="text-primary"> Connect</span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav links */}
         <div className="hidden lg:flex items-center gap-1">
           {dropdowns.map((dropdown) => (
             <div key={dropdown.label} className="relative">
@@ -86,13 +136,8 @@ export function Navbar() {
                 }`}
               >
                 {dropdown.label}
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    openDropdown === dropdown.label ? "rotate-180" : ""
-                  }`}
-                />
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === dropdown.label ? "rotate-180" : ""}`} />
               </button>
-
               {openDropdown === dropdown.label && (
                 <div className="absolute top-full left-0 mt-1.5 w-64 bg-[#fdfdef] border border-border rounded-xl shadow-lg py-2 z-50">
                   {dropdown.items.map((item) => (
@@ -100,9 +145,7 @@ export function Navbar() {
                       key={item.href}
                       to={item.href}
                       className={`flex flex-col px-4 py-3 hover:bg-primary/5 transition-colors ${
-                        location.pathname === item.href
-                          ? "text-primary bg-primary/5"
-                          : "text-foreground"
+                        location.pathname === item.href ? "text-primary bg-primary/5" : "text-foreground"
                       }`}
                     >
                       <span className="text-sm font-medium">{item.label}</span>
@@ -113,7 +156,6 @@ export function Navbar() {
               )}
             </div>
           ))}
-
           {standaloneLinks.map((link) => (
             <Link
               key={link.href}
@@ -129,21 +171,107 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Auth buttons */}
-        <div className="hidden lg:flex items-center gap-2">
-          <Link
-            to="/login"
-            className="px-3 py-2 text-sm font-medium rounded-md text-navbar-foreground hover:text-primary hover:bg-primary/5 transition-colors"
-          >
-            Log In
-          </Link>
-          <Link
-            to="/get-started"
-            className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Get Started
-          </Link>
-        </div>
+        {/* Desktop auth — logged out */}
+        {!user ? (
+          <div className="hidden lg:flex items-center gap-2">
+            <Link to="/login" className="px-3 py-2 text-sm font-medium rounded-md text-navbar-foreground hover:text-primary hover:bg-primary/5 transition-colors">
+              Log In
+            </Link>
+            <Link to="/get-started" className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+              Get Started
+            </Link>
+          </div>
+        ) : (
+          // Desktop auth — logged in
+          <div className="hidden lg:flex items-center gap-3" ref={userMenuRef}>
+            {/* Quick CTA based on role */}
+            {user.role !== "Employer" && (
+              <Link
+                to="/career-match"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors border border-primary/20"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                Career Match
+              </Link>
+            )}
+
+            {/* Avatar + name button */}
+            <div className="relative">
+              <button
+                onClick={toggleUserMenu}
+                className={`flex items-center gap-2.5 px-3 py-1.5 rounded-xl border-2 transition-all ${
+                userMenuOpen ? "border-[#5f1a37] bg-[#5f1a37]" : "border-[#5f1a37] bg-[#5f1a37] hover:bg-[#731f43] hover:border-[#731f43]"
+              }`}
+              >
+                {/* Avatar circle */}
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black ${getRoleColor(user.role)}`}>
+                  {getInitials(user.name)}
+                </div>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-white leading-none">{user.name.split(" ")[0]}</p>
+                  <p className="text-xs text-white/70 leading-none mt-0.5">{user.role}</p>
+                </div>
+                <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform ${userMenuOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {/* User dropdown */}
+              {userMenuOpen && (
+                <div className="absolute top-full right-0 mt-2 w-72 bg-[#fdfdef] border border-border rounded-2xl shadow-xl py-3 z-50">
+                  {/* User info header */}
+                  <div className="px-4 pb-3 mb-1 border-b border-border">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-black ${getRoleColor(user.role)}`}>
+                        {getInitials(user.name)}
+                      </div>
+                      <div>
+                        <p className="font-bold text-foreground text-sm">{user.name}</p>
+                        <p className="text-xs text-muted-foreground">{user.email}</p>
+                        <span className={`inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded-full ${getRoleColor(user.role)}`}>
+                          {user.role}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Role-based menu items */}
+                  <div className="px-2 mb-1">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2 py-1.5">
+                      {user.role === "Employer" ? "Manage" : "My Learning"}
+                    </p>
+                    {menuItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        to={item.href}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                      >
+                        <div className="p-1.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                          <item.icon className="h-3.5 w-3.5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{item.label}</p>
+                          <p className="text-xs text-muted-foreground">{item.desc}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Divider + logout */}
+                  <div className="border-t border-border mt-1 pt-2 px-2">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors group"
+                    >
+                      <div className="p-1.5 rounded-lg bg-muted text-muted-foreground group-hover:bg-destructive/10 group-hover:text-destructive transition-colors">
+                        <LogOut className="h-3.5 w-3.5" />
+                      </div>
+                      <span className="text-sm font-semibold">Log out</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Mobile toggle */}
         <button
@@ -167,11 +295,7 @@ export function Navbar() {
                   className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-navbar-foreground hover:text-primary rounded-md"
                 >
                   {dropdown.label}
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform ${
-                      openDropdown === dropdown.label ? "rotate-180" : ""
-                    }`}
-                  />
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openDropdown === dropdown.label ? "rotate-180" : ""}`} />
                 </button>
                 {openDropdown === dropdown.label && (
                   <div className="ml-4 flex flex-col gap-1 mb-1">
@@ -192,7 +316,6 @@ export function Navbar() {
                 )}
               </div>
             ))}
-
             {standaloneLinks.map((link) => (
               <Link
                 key={link.href}
@@ -207,20 +330,48 @@ export function Navbar() {
               </Link>
             ))}
 
-            <div className="flex gap-2 mt-3 px-3">
-              <Link
-                to="/login"
-                className="flex-1 text-center px-3 py-2 text-sm font-medium rounded-md border border-border text-navbar-foreground hover:text-primary transition-colors"
-              >
-                Log In
-              </Link>
-              <Link
-                to="/get-started"
-                className="flex-1 text-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
+            {/* Mobile auth section */}
+            {!user ? (
+              <div className="flex gap-2 mt-3 px-3">
+                <Link to="/login" className="flex-1 text-center px-3 py-2 text-sm font-medium rounded-md border border-border text-navbar-foreground hover:text-primary transition-colors">
+                  Log In
+                </Link>
+                <Link to="/get-started" className="flex-1 text-center px-3 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                  Get Started
+                </Link>
+              </div>
+            ) : (
+              <div className="mt-3 px-3 space-y-1">
+                {/* Mobile user info */}
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border mb-2">
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-black ${getRoleColor(user.role)}`}>
+                    {getInitials(user.name)}
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground text-sm">{user.name}</p>
+                    <p className="text-xs text-muted-foreground">{user.role}</p>
+                  </div>
+                </div>
+                {/* Mobile menu items */}
+                {menuItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/5 transition-colors"
+                  >
+                    <item.icon className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">{item.label}</span>
+                  </Link>
+                ))}
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors mt-1"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span className="text-sm font-semibold">Log out</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

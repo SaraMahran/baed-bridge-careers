@@ -1,58 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Baed Connect Brand System */
     --background: 48 60% 97%;
     --foreground: 330 57% 18%;
-
-    /* --card: 0 0% 100%;
-    --card-foreground: 330 57% 18%; */
-
     --card: 54 94% 97%;
-
-    /* --popover: 0 0% 100%; */
+    --card-foreground: 330 57% 18%;
     --popover: 54 94% 97%;
     --popover-foreground: 330 57% 18%;
-
-    /* Primary: #a0205b → deep magenta */
     --primary: 333 67% 38%;
     --primary-foreground: 0 0% 100%;
-
-    /* Secondary: soft cream/yellow #f9f5c1 */
     --secondary: 53 82% 87%;
     --secondary-foreground: 330 57% 24%;
-
-    /* Muted */
     --muted: 48 30% 93%;
     --muted-foreground: 330 20% 46%;
-
-    /* Accent: soft pink #daa9cd */
     --accent: 316 35% 76%;
     --accent-foreground: 330 57% 18%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 330 15% 88%;
     --input: 330 15% 88%;
     --ring: 333 67% 38%;
-
     --radius: 0.75rem;
-
-    /* Navbar */
     --navbar: 53 82% 87%;
     --navbar-foreground: 330 57% 24%;
-
-    /* Brand extras */
     --brand-deep: 330 57% 24%;
     --brand-glow: 316 35% 76%;
     --brand-warm: 53 82% 87%;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 333 67% 38%;
@@ -62,43 +39,31 @@
     --sidebar-border: 330 15% 88%;
     --sidebar-ring: 333 67% 38%;
   }
-
   .dark {
     --background: 330 30% 8%;
     --foreground: 48 60% 95%;
-
     --card: 330 25% 12%;
     --card-foreground: 48 60% 95%;
-
     --popover: 330 25% 12%;
     --popover-foreground: 48 60% 95%;
-
     --primary: 333 67% 50%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 53 40% 18%;
     --secondary-foreground: 53 82% 87%;
-
     --muted: 330 20% 16%;
     --muted-foreground: 330 15% 65%;
-
     --accent: 316 30% 30%;
     --accent-foreground: 316 35% 86%;
-
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 330 20% 20%;
     --input: 330 20% 20%;
     --ring: 333 67% 50%;
-
     --navbar: 330 30% 10%;
     --navbar-foreground: 53 82% 87%;
-
     --brand-deep: 330 57% 80%;
     --brand-glow: 316 35% 40%;
     --brand-warm: 53 40% 18%;
-
     --sidebar-background: 330 25% 10%;
     --sidebar-foreground: 48 60% 95%;
     --sidebar-primary: 333 67% 50%;
@@ -111,64 +76,34 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-body antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
-  }
-
-  /* Focus styles for accessibility */
-  *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary ring-0;
-  }
-
-  /* Skip to content link */
-  .skip-link {
-    @apply absolute -top-10 left-4 z-[100] bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium transition-all;
-  }
-  .skip-link:focus {
-    @apply top-4;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-body antialiased; }
+  h1, h2, h3, h4, h5, h6 { @apply font-display; }
+  *:focus-visible { @apply outline-2 outline-offset-2 outline-primary ring-0; }
+  .skip-link { @apply absolute -top-10 left-4 z-[100] bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium transition-all; }
+  .skip-link:focus { @apply top-4; }
 }
 
 @layer utilities {
   .gradient-hero {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--secondary)) 0%,
-      hsl(var(--background)) 40%,
-      hsl(var(--accent) / 0.2) 100%
-    );
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 40%, hsl(var(--accent) / 0.2) 100%);
   }
-
   .gradient-primary {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary)) 0%,
-      hsl(333 67% 48%) 100%
-    );
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(333 67% 48%) 100%);
   }
-
   .gradient-accent {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--accent) / 0.3) 0%,
-      hsl(var(--secondary) / 0.5) 100%
-    );
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.3) 0%, hsl(var(--secondary) / 0.5) 100%);
   }
-
+  /* NEW — deep brand section background */
+  .bg-brand-deep {
+    background: linear-gradient(135deg, #5f1a37 0%, #731f43 100%);
+  }
+  /* NEW — soft pink section background */
+  .bg-brand-soft {
+    background: linear-gradient(135deg, #e9cde2 0%, #daa9cd 100%);
+  }
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--brand-deep)) 100%
-    );
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--brand-deep)) 100%);
   }
 }
