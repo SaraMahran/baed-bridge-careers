@@ -20,6 +20,9 @@ import CourseDetail from "./pages/CourseDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
+import MyCourses from "@/pages/MyCourses";
+import MyJobs from "@/pages/MyJobs";
+import MyMentorship from "@/pages/MyMentorship";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +51,9 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/my-courses" element={<MyCourses />} />
+          <Route path="/my-jobs" element={<MyJobs />} />
+          <Route path="/my-mentorship" element={<MyMentorship />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
