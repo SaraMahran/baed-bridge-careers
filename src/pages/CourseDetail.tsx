@@ -1,13 +1,39 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { motion } from "framer-motion";
 import { courses } from "./Courses";
-import { CheckCircle, Clock, ArrowLeft, Sparkles } from "lucide-react";
+import { CheckCircle, Clock, ArrowLeft, Sparkles, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find(c => c.slug === slug);
+  const { toast } = useToast();
+
+  const isEnrolled = (() => {
+    try {
+      const enrolled: string[] = JSON.parse(localStorage.getItem("enrolled_courses") || "[]");
+      return enrolled.includes(slug ?? "");
+    } catch { return false; }
+  })();
+
+  const [enrolled, setEnrolled] = useState(isEnrolled);
+
+  const handleEnroll = () => {
+    try {
+      const existing: string[] = JSON.parse(localStorage.getItem("enrolled_courses") || "[]");
+      if (!existing.includes(slug ?? "")) {
+        localStorage.setItem("enrolled_courses", JSON.stringify([...existing, slug]));
+      }
+    } catch {}
+    setEnrolled(true);
+    toast({
+      title: "Enrolled successfully! 🎉",
+      description: `"${course?.title}" has been added to your courses.`,
+    });
+  };
 
   if (!course) {
     return (
@@ -48,11 +74,17 @@ export default function CourseDetail() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               {course.fullDesc}
             </p>
-            <div className="mt-8 flex gap-4">
-              <Button size="lg">
-                Enroll Now
-              </Button>
-              <Button size="lg" variant="outline" asChild>
+            <div className="mt-8 flex gap-4 flex-wrap">
+              {enrolled ? (
+                <Button size="lg" className="bg-[#5f1a37] hover:bg-[#5f1a37] text-white cursor-default" disabled>
+                  <CheckCircle className="h-4 w-4 mr-2" /> Enrolled
+                </Button>
+              ) : (
+                <Button size="lg" onClick={handleEnroll}>
+                  <BookOpen className="h-4 w-4 mr-2" /> Enroll Now
+                </Button>
+              )}
+              <Button size="lg" variant="outline" asChild className="border-2 border-[#a0205b] text-[#a0205b] bg-transparent hover:bg-[#a0205b] hover:text-white transition-all">
                 <Link to="/career-match">
                   <Sparkles className="h-4 w-4 mr-2" />
                   Get AI Career Match
@@ -62,7 +94,6 @@ export default function CourseDetail() {
           </motion.div>
         </div>
       </section>
-
       <section className="py-20">
         <div className="container max-w-3xl">
           <div className="grid md:grid-cols-2 gap-8">
@@ -78,7 +109,6 @@ export default function CourseDetail() {
                 ))}
               </div>
             </div>
-
             {/* Accessibility info */}
             <div className="bg-card border border-border rounded-2xl p-6">
               <h2 className="text-xl font-bold text-foreground mb-4">Accessibility</h2>

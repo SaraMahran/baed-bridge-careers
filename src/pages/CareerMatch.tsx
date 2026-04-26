@@ -166,9 +166,15 @@ You MUST respond in this exact JSON format and nothing else:
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-20 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-br from-[#5f1a37] via-[#a0205b] to-[#c374ae]" />
-        <motion.div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-white/5" animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-white/5" animate={{ scale: [1.15, 1, 1.15] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.div className="absolute top-10 right-1/3 w-32 h-32 rounded-full bg-[#fff279]/10" animate={{ y: [0, -16, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
+        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full overflow-hidden pointer-events-none">
+          <motion.div className="w-full h-full bg-white/5" animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
+        </div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full overflow-hidden pointer-events-none">
+          <motion.div className="w-full h-full bg-white/5" animate={{ scale: [1.15, 1, 1.15] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
+        </div>
+        <div className="absolute top-10 right-1/3 w-32 h-32 rounded-full overflow-hidden pointer-events-none">
+          <motion.div className="w-full h-full bg-[#fff279]/10" animate={{ y: [0, -16, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
+        </div>
 
         <div className="container relative z-10 max-w-4xl text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>

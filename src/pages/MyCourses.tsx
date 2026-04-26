@@ -15,7 +15,8 @@ const fadeUp = {
 export default function MyCourses() {
   const stored = localStorage.getItem("baed_user");
   const user = stored ? JSON.parse(stored) : null;
-  const data = user ? getProfileData(user.email) : null;
+    const data = user ? getProfileData(user.email) : null;
+    console.log("user email:", user?.email, "data:", data);
   const courses = data?.savedCourses ?? [];
 
   return (
@@ -51,7 +52,7 @@ export default function MyCourses() {
                         {course.category}
                       </span>
                       {course.progress === 100 ? (
-                        <CheckCircle className="h-5 w-5 text-green-500 shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-[#5f1a37] shrink-0" />
                       ) : (
                         <Play className="h-5 w-5 text-primary shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                       )}
