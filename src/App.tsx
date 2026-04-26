@@ -20,9 +20,14 @@ import CourseDetail from "./pages/CourseDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import MyCourses from "@/pages/MyCourses";
-import MyJobs from "@/pages/MyJobs";
-import MyMentorship from "@/pages/MyMentorship";
+import MyCourses from "./pages/MyCourses";
+import MyJobs from "./pages/MyJobs";
+import MyMentorship from "./pages/MyMentorship";
+import MyListings from "./pages/MyListings";
+import JobDetail from "./pages/JobDetail";
+import PostJob from "./pages/PostJob";
+import JobPreview from "./pages/JobPreview";
+
 
 const queryClient = new QueryClient();
 
@@ -41,6 +46,7 @@ const App = () => (
           <Route path="/courses/:slug" element={<CourseDetail />} />
           <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs/:id" element={<JobDetail />} />
           <Route path="/accessibility-resources" element={<AccessibilityResources />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/contact" element={<Contact />} />
@@ -50,10 +56,15 @@ const App = () => (
           <Route path="/career-match" element={<CareerMatch />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="*" element={<NotFound />} />
+          {/* Profile pages */}
           <Route path="/my-courses" element={<MyCourses />} />
           <Route path="/my-jobs" element={<MyJobs />} />
           <Route path="/my-mentorship" element={<MyMentorship />} />
+          <Route path="/my-listings" element={<MyListings />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/post-job" element={<PostJob />} />
+          <Route path="/job-preview" element={<JobPreview />} />
+
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

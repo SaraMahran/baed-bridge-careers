@@ -54,7 +54,7 @@ export default function MyJobs() {
             <div className="grid sm:grid-cols-2 gap-5">
               {jobs.map((job, i) => (
                 <motion.div key={job.id} initial="hidden" animate="visible" variants={fadeUp} custom={i + 1}>
-                  <Link to={job.href}
+                  <Link to={`${job.href}?saved=true`}
                     className="block p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
                   >
                     <div className="flex items-start gap-4">

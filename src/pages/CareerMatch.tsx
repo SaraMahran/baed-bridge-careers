@@ -499,7 +499,7 @@ You MUST respond in this exact JSON format and nothing else:
                     {result.courses.map((course, i) => (
                       <Link
                         key={i}
-                        to={`/courses/${allCourses.find(c => c.title === course)?.slug || ''}`}
+                        to={`/courses/${allCourses.find(c => c.title.toLowerCase().includes(course.toLowerCase().split(" ")[0]) || course.toLowerCase().includes(c.title.toLowerCase().split(" ")[0]))?.slug || 'content-writing-fundamentals'}`}
                         className="flex items-center gap-3 p-4 rounded-xl bg-background border-2 border-border hover:border-primary hover:bg-primary/5 transition-all group"
                       >
                         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white text-xs font-bold shrink-0">
@@ -553,11 +553,15 @@ You MUST respond in this exact JSON format and nothing else:
                 {/* CTA row */}
                 <motion.div variants={resultCardVariants} initial="hidden" animate="visible" custom={6}
                   className="grid sm:grid-cols-2 gap-4 pt-2">
-                  <Button className="w-full h-12" onClick={resetForm} variant="outline">
+                  <Button
+                    className="w-full h-12 border-2 border-[#a0205b] text-[#a0205b] bg-transparent hover:bg-[#a0205b] hover:text-white transition-all font-bold"
+                    onClick={resetForm}
+                    variant="outline"
+                  >
                     <Zap className="mr-2 h-4 w-4" />
                     Try a different profile
                   </Button>
-                  <Button className="w-full h-12 bg-primary text-white" asChild>
+                  <Button className="w-full h-12 bg-[#5f1a37] hover:bg-[#731f43] text-white font-bold" asChild>
                     <Link to="/courses">
                       <BookOpen className="mr-2 h-4 w-4" />
                       Browse all courses
