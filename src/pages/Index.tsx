@@ -141,6 +141,370 @@ function HeroSection() {
   );
 }
 
+// function AboutSection() {
+//   const stats = [
+//     { number: "6", label: "Accessible courses" },
+//     { number: "4", label: "Live job listings" },
+//     { number: "AI", label: "Powered by Gemini" },
+//     { number: "100%", label: "Remote-friendly" },
+//   ];
+
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="about-heading">
+//       <div className="container max-w-6xl mx-auto">
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0}
+//           className="text-center mb-12"
+//         >
+//           <h2 id="about-heading" className="text-3xl md:text-4xl font-bold">
+//             One Platform. Every Talent
+//           </h2>
+//         </motion.div>
+
+
+//         <div className="grid md:grid-cols-2 gap-6 mb-12">
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideLeft} custom={1}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-[#a0205b]/10 px-3 py-1.5 rounded-full mb-4">
+//               <GraduationCap className="h-4 w-4 text-[#5f1a37]" />
+//               <span className="text-xs font-semibold text-[#5f1a37]">For Aspiring Talents</span>
+//             </div>
+//             <p className="text-[#5f1a37] text-base leading-relaxed">
+//               Master practical content skills in an environment designed for your accessibility. From personalized roadmaps to real career matches, we turn your lived experience into a professional asset.
+//             </p>
+//             <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#5f1a37] hover:text-[#a0205b] transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideRight} custom={1}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-[#a0205b]/10 px-3 py-1.5 rounded-full mb-4">
+//               <Building2 className="h-4 w-4 text-[#5f1a37]" />
+//               <span className="text-xs font-semibold text-[#5f1a37]">For Inclusive Employers</span>
+//             </div>
+//             <p className="text-[#5f1a37] text-base leading-relaxed">
+//               Access market-ready talent with disabilities and build high-efficiency teams. We guide you through digital accessibility and inclusive hiring to reach a wider, more diverse audience.
+//             </p>
+//             <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#5f1a37] hover:text-[#a0205b] transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+//         </div>
+
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//           {stats.map((stat, i) => (
+//             <motion.div
+//               key={stat.label}
+//               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+//               variants={scaleIn} custom={i}
+//               className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] border border-[#a0205b]/30"
+//             >
+//               <p className="text-2xl font-black text-[#fff279]">{stat.number}</p>
+//               <p className="text-xs text-[#fff279]/70 mt-1">{stat.label}</p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+// function AboutSection() {
+//   const stats = [
+//     { number: "6", label: "Accessible courses" },
+//     { number: "4", label: "Live job listings" },
+//     { number: "AI", label: "Powered by Gemini" },
+//     { number: "100%", label: "Remote-friendly" },
+//   ];
+ 
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="about-heading">
+//       <div className="container max-w-6xl mx-auto">
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0}
+//           className="text-center mb-12"
+//         >
+//           <h2 id="about-heading" className="text-3xl md:text-4xl font-bold">
+//             One Platform. Every Talent
+//           </h2>
+//           <motion.p
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.15 }}
+//             className="mt-3 text-sm text-muted-foreground/70 tracking-wide"
+//           >
+//             Committed to 100% free accessibility for talents, powered by inclusive employers.
+//           </motion.p>
+//         </motion.div>
+ 
+//         <div className="grid md:grid-cols-2 gap-6 mb-12">
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideLeft} custom={1}
+//             className="rounded-2xl bg-[#5f1a37] p-8"
+//           >
+            
+//             <div className="inline-flex items-center gap-2 bg-[#f9f2c2]/10 px-3 py-1.5 rounded-full mb-4">
+//               <GraduationCap className="h-4 w-4 text-[#fff279]" />
+//               <span className="text-xs font-semibold text-[#fff279]">For Aspiring Talents</span>
+//             </div>
+//             <p className="text-[#f9f2c2] text-base leading-relaxed">
+//               Master practical content skills in an environment designed for your accessibility. From personalized roadmaps to real career matches, we turn your lived experience into a professional asset.
+//             </p>
+//             <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#fff279] hover:text-[#fff060] transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+ 
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideRight} custom={1}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full mb-4">
+//               <Building2 className="h-4 w-4 text-primary" />
+//               <span className="text-xs font-semibold text-primary">For Inclusive Employers</span>
+//             </div>
+//             <p className="text-muted-foreground text-base leading-relaxed">
+//               Access market-ready talent with disabilities and build high-efficiency teams. We guide you through digital accessibility and inclusive hiring to reach a wider, more diverse audience.
+//             </p>
+//             <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+//         </div>
+ 
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//           {stats.map((stat, i) => (
+//             <motion.div
+//               key={stat.label}
+//               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+//               variants={scaleIn} custom={i}
+//               className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] border border-[#a0205b]/30"
+//             >
+//               <p className="text-2xl font-black text-[#fff279]">{stat.number}</p>
+//               <p className="text-xs text-[#fff279]/70 mt-1">{stat.label}</p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function AboutSection() {
+//   const stats = [
+//     { number: "6", label: "Accessible courses" },
+//     { number: "4", label: "Live job listings" },
+//     { number: "AI", label: "Powered by Gemini" },
+//     { number: "100%", label: "Remote-friendly" },
+//   ];
+ 
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="about-heading">
+//       <div className="container max-w-6xl mx-auto">
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0}
+//           className="text-center mb-12"
+//         >
+//           <h2 id="about-heading" className="text-3xl md:text-4xl font-bold">
+//             One Platform. Every Talent
+//           </h2>
+//           <motion.p
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.15 }}
+//             className="mt-3 text-sm text-muted-foreground/70 tracking-wide"
+//           >
+//             Committed to 100% free accessibility for talents, powered by inclusive employers.
+//           </motion.p>
+//         </motion.div>
+
+//         {/* NEW CENTER SECTION */}
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0.5}
+//           className="text-center mb-12"
+//         >
+//           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full mb-4">
+//             <Sparkles className="h-4 w-4 text-primary" />
+//             <span className="text-xs font-semibold text-primary">Our Mission</span>
+//           </div>
+//           <h3 className="text-2xl md:text-3xl font-semibold mb-4">
+//             Bridging the Gap
+//           </h3>
+//           <p className="text-muted-foreground max-w-3xl mx-auto text-base leading-relaxed">
+//             We bridge the gap between skilled talents and inclusive employers. By leveraging Baed's deep expertise and Gemini AI technology, we don't just list jobs, we build roadmaps. We empower individuals to master Content Marketing and match them with teams where they can truly thrive.
+//           </p>
+//         </motion.div>
+ 
+//         <div className="grid md:grid-cols-2 gap-6 mb-12">
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideLeft} custom={1}
+//             className="rounded-2xl bg-[#5f1a37] p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-[#f9f2c2]/10 px-3 py-1.5 rounded-full mb-4">
+//               <GraduationCap className="h-4 w-4 text-[#fff279]" />
+//               <span className="text-xs font-semibold text-[#fff279]">For Aspiring Talents</span>
+//             </div>
+//             <p className="text-[#f9f2c2] text-base leading-relaxed">
+//               Master practical content skills in an environment designed for your accessibility. From personalized roadmaps to real career matches, we turn your lived experience into a professional asset.
+//             </p>
+//             <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#fff279] hover:text-[#fff060] transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+ 
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideRight} custom={1}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full mb-4">
+//               <Building2 className="h-4 w-4 text-primary" />
+//               <span className="text-xs font-semibold text-primary">For Inclusive Employers</span>
+//             </div>
+//             <p className="text-muted-foreground text-base leading-relaxed">
+//               Access market-ready talent with disabilities and build high-efficiency teams. We guide you through digital accessibility and inclusive hiring to reach a wider, more diverse audience.
+//             </p>
+//             <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+//         </div>
+ 
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//           {stats.map((stat, i) => (
+//             <motion.div
+//               key={stat.label}
+//               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+//               variants={scaleIn} custom={i}
+//               className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] border border-[#a0205b]/30"
+//             >
+//               <p className="text-2xl font-black text-[#fff279]">{stat.number}</p>
+//               <p className="text-xs text-[#fff279]/70 mt-1">{stat.label}</p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+//}
+
+// function AboutSection() {
+//   const stats = [
+//     { number: "6", label: "Accessible courses" },
+//     { number: "4", label: "Live job listings" },
+//     { number: "AI", label: "Powered by Gemini" },
+//     { number: "100%", label: "Remote-friendly" },
+//   ];
+ 
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="about-heading">
+//       <div className="container max-w-6xl mx-auto">
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0}
+//           className="text-center mb-12"
+//         >
+//           <h2 id="about-heading" className="text-3xl md:text-4xl font-bold">
+//             One Platform. Every Talent
+//           </h2>
+//           <motion.p
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.15 }}
+//             className="mt-3 text-sm text-muted-foreground/70 tracking-wide"
+//           >
+//             Committed to 100% free accessibility for talents, powered by inclusive employers.
+//           </motion.p>
+//         </motion.div>
+
+//         {/* NEW CENTER SECTION - MARKETING TITLE */}
+//         <motion.div
+//           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp} custom={0.5}
+//           className="text-center mb-12"
+//         >
+//           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full mb-4">
+//             <Sparkles className="h-4 w-4 text-primary" />
+//             <span className="text-xs font-semibold text-primary">AI-Powered Ecosystem</span>
+//           </div>
+//           <h3 className="text-2xl md:text-3xl font-semibold mb-4">
+//             Your Path, Personalized 
+
+//           </h3>
+//           <p className="text-muted-foreground max-w-3xl mx-auto text-base leading-relaxed">
+//             We bridge the gap between skilled talents and inclusive employers. By leveraging Baed's deep expertise and Gemini AI technology, we don't just list jobs, we build roadmaps. We empower individuals to master Content Marketing and match them with teams where they can truly thrive.
+//           </p>
+//         </motion.div>
+ 
+//         <div className="grid md:grid-cols-2 gap-6 mb-12">
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideLeft} custom={1}
+//             className="rounded-2xl bg-[#5f1a37] p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-[#f9f2c2]/10 px-3 py-1.5 rounded-full mb-4">
+//               <GraduationCap className="h-4 w-4 text-[#fff279]" />
+//               <span className="text-xs font-semibold text-[#fff279]">For Aspiring Talents</span>
+//             </div>
+//             <p className="text-[#f9f2c2] text-base leading-relaxed">
+//               Master practical content skills in an environment designed for your accessibility. From personalized roadmaps to real career matches, we turn your lived experience into a professional asset.
+//             </p>
+//             <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#fff279] hover:text-[#fff060] transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+ 
+//           <motion.div
+//             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+//             variants={slideRight} custom={1}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full mb-4">
+//               <Building2 className="h-4 w-4 text-primary" />
+//               <span className="text-xs font-semibold text-primary">For Inclusive Employers</span>
+//             </div>
+//             <p className="text-muted-foreground text-base leading-relaxed">
+//               Access market-ready talent with disabilities and build high-efficiency teams. We guide you through digital accessibility and inclusive hiring to reach a wider, more diverse audience.
+//             </p>
+//             <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+//               Learn more <ArrowRight className="h-4 w-4" />
+//             </Link>
+//           </motion.div>
+//         </div>
+ 
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//           {stats.map((stat, i) => (
+//             <motion.div
+//               key={stat.label}
+//               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+//               variants={scaleIn} custom={i}
+//               className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] border border-[#a0205b]/30"
+//             >
+//               <p className="text-2xl font-black text-[#fff279]">{stat.number}</p>
+//               <p className="text-xs text-[#fff279]/70 mt-1">{stat.label}</p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function AboutSection() {
   const stats = [
     { number: "6", label: "Accessible courses" },
@@ -148,7 +512,7 @@ function AboutSection() {
     { number: "AI", label: "Powered by Gemini" },
     { number: "100%", label: "Remote-friendly" },
   ];
-
+ 
   return (
     <section className="py-20 bg-card" aria-labelledby="about-heading">
       <div className="container max-w-6xl mx-auto">
@@ -162,43 +526,66 @@ function AboutSection() {
           </h2>
         </motion.div>
 
-
+        {/* NEW CENTER SECTION - MARKETING TITLE */}
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp} custom={0.5}
+          className="text-center mb-12"
+        >
+          {/* <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full mb-4">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-xs font-semibold text-primary">AI-Powered Ecosystem</span>
+          </div> */}
+         
+          <p className="text-muted-foreground max-w-3xl mx-auto text-base leading-relaxed">
+            We bridge the gap between skilled talents and inclusive employers. By leveraging Baed's deep expertise and Gemini AI technology, we don't just list jobs, we build roadmaps. We empower individuals to master Content Marketing and match them with teams where they can truly thrive.
+          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-3 text-sm text-muted-foreground/70 tracking-wide"
+          >
+            Committed to 100% free accessibility for talents, powered by inclusive employers.
+          </motion.p>
+        </motion.div>
+ 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={slideLeft} custom={1}
-            className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+            className="rounded-2xl bg-[#5f1a37] p-8"
           >
-            <div className="inline-flex items-center gap-2 bg-[#a0205b]/10 px-3 py-1.5 rounded-full mb-4">
-              <GraduationCap className="h-4 w-4 text-[#5f1a37]" />
-              <span className="text-xs font-semibold text-[#5f1a37]">For Aspiring Talents</span>
+            <div className="inline-flex items-center gap-2 bg-[#f9f2c2]/10 px-3 py-1.5 rounded-full mb-4">
+              <GraduationCap className="h-4 w-4 text-[#fff279]" />
+              <span className="text-xs font-semibold text-[#fff279]">For Aspiring Talents</span>
             </div>
-            <p className="text-[#5f1a37] text-base leading-relaxed">
+            <p className="text-[#f9f2c2] text-base leading-relaxed">
               Master practical content skills in an environment designed for your accessibility. From personalized roadmaps to real career matches, we turn your lived experience into a professional asset.
             </p>
-            <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#5f1a37] hover:text-[#a0205b] transition-colors">
+            <Link to="/learners" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#fff279] hover:text-[#fff060] transition-colors">
               Learn more <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
-
+ 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={slideRight} custom={1}
             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
           >
-            <div className="inline-flex items-center gap-2 bg-[#a0205b]/10 px-3 py-1.5 rounded-full mb-4">
-              <Building2 className="h-4 w-4 text-[#5f1a37]" />
-              <span className="text-xs font-semibold text-[#5f1a37]">For Inclusive Employers</span>
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full mb-4">
+              <Building2 className="h-4 w-4 text-primary" />
+              <span className="text-xs font-semibold text-primary">For Inclusive Employers</span>
             </div>
-            <p className="text-[#5f1a37] text-base leading-relaxed">
+            <p className="text-muted-foreground text-base leading-relaxed">
               Access market-ready talent with disabilities and build high-efficiency teams. We guide you through digital accessibility and inclusive hiring to reach a wider, more diverse audience.
             </p>
-            <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#5f1a37] hover:text-[#a0205b] transition-colors">
+            <Link to="/employers" className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
               Learn more <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>
-
+ 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <motion.div
@@ -211,6 +598,172 @@ function AboutSection() {
               <p className="text-xs text-[#fff279]/70 mt-1">{stat.label}</p>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// function BridgeSection() {
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="bridge-heading">
+//       <div className="container max-w-5xl mx-auto">
+//         <motion.div
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true, margin: "-80px" }}
+//           variants={fadeUp}
+//           custom={0}
+//           className="text-center mb-8"
+//         >
+//           <h2 id="bridge-heading" className="text-3xl md:text-4xl font-bold mb-4">
+//             Built on Experience, Driven by Impact
+//           </h2>
+//           <p className="text-primary font-semibold text-sm tracking-wide uppercase mb-8">
+//             5 Years Expertise | 6 Countries | 11 Industries | 25+ Global Brands
+//           </p>
+//         </motion.div>
+
+//         <div className="grid md:grid-cols-2 gap-6">
+//           <motion.div
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true, margin: "-60px" }}
+//             variants={slideLeft}
+//             custom={0}
+//             className="rounded-2xl bg-[#5f1a37] p-8"
+//           >
+//             <p className="text-[#f9f2c2] text-base leading-relaxed">
+//               The Strategic Pivot: We are channeling our 5 years of field experience into building Tech Products and Solutions tailored for the Content Marketing and Production industry. Our mission is to empower both Creators and Companies by turning complex market challenges into streamlined digital tools.
+//             </p>
+//           </motion.div>
+
+//           <motion.div
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true, margin: "-60px" }}
+//             variants={slideRight}
+//             custom={0}
+//             className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-8"
+//           >
+//             <p className="text-muted-foreground text-base leading-relaxed">
+//               Sustainability & Inclusivity: As our first tech milestone, Baed Connect is built on the principles of Sustainability and Social Impact. We leverage AI not just for automation, but to unlock true inclusivity, ensuring that the future of content is accessible to every talent, regardless of barriers.
+//             </p>
+//           </motion.div>
+//         </div>
+
+//         <motion.div
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true, margin: "-60px" }}
+//           variants={fadeUp}
+//           custom={1}
+//           className="text-center mt-8"
+//         >
+//           <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+//             From Services to Tech Solutions: Learn more about our story →
+//           </Link>
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// }
+
+function BridgeSection() {
+  return (
+    <section className="py-20 relative overflow-hidden">
+      {/* Unique background - different from other sections */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5f1a37]/5 via-transparent to-[#a0205b]/5" />
+      
+      <div className="container relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Header with decorative line */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            custom={0}
+            className="text-center mb-12"
+          >
+            <div className="w-16 h-0.5 bg-primary/30 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Built on Experience, <span className="text-primary">Driven by Impact</span>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 mt-4">
+              {["5 Years Expertise", "6 Countries", "11 Industries", "25+ Global Brands"].map((item, i) => (
+                <span key={i} className="text-xs font-semibold text-primary/70 bg-primary/5 px-3 py-1 rounded-full">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Two cards with new style - full width with icons */}
+          <div className="space-y-6">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={slideLeft}
+              custom={0}
+              className="group relative overflow-hidden rounded-2xl bg-[#5f1a37] dark:bg-gray-900 border-l-8 border-l-[#a0205b] shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#a0205b]/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="p-2 rounded-xl bg-[#f9f2c2] text-[#5f1a37]">
+                    <TrendingUp className="h-5 w-5" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#f9f2c2]">The Strategic Pivot</span>
+                </div>
+                <p className=" text-[#f9f2c2] leading-relaxed">
+                  We are channeling our 5 years of field experience into building Tech Products and Solutions tailored for the Content Marketing and Production industry. Our mission is to empower both Creators and Companies by turning complex market challenges into streamlined digital tools.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={slideRight}
+              custom={0}
+              className="group relative overflow-hidden rounded-2xl bg-[#f9f2c2] border-r-8 border-r-[#5f1a37] shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8"
+            >
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#5f1a37]/5 rounded-full -ml-16 -mb-16 group-hover:scale-150 transition-transform duration-500" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="p-2 rounded-xl bg-[#5f1a37]/10 text-[#5f1a37]">
+                    <Heart className="h-5 w-5" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#5f1a37]">Sustainability & Inclusivity</span>
+                </div>
+                <p className="text-[#5f1a37]/80 text-base leading-relaxed">
+                  As our first tech milestone, Baed Connect is built on the principles of Sustainability and Social Impact. We leverage AI not just for automation, but to unlock true inclusivity, ensuring that the future of content is accessible to every talent, regardless of barriers.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            custom={1}
+            className="text-center mt-10"
+          >
+            <Link 
+              to="/about" 
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              <span className="border-b border-primary/30 group-hover:border-primary transition-colors pb-0.5">
+                From Services to Tech Solutions: Learn more about our story
+              </span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -396,9 +949,9 @@ function HowItWorksSection() {
               key={track.title}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
               variants={idx === 0 ? slideLeft : slideRight} custom={1}
-              className="p-8 rounded-2xl border border-border bg-[#f9f2c2] text-center"
+              className="p-8 rounded-2xl border border-border bg-[#f9f2c2]"
             >
-              <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-primary/10">
                   <track.icon className="h-5 w-5 text-primary" />
                 </div>
@@ -650,7 +1203,7 @@ function PartnershipSection() {
                   <partner.icon className="h-6 w-6" />
                 </div>
                 <h3 className="font-bold text-[#f9f2c2] text-lg mb-3">{partner.title}</h3>
-                <p className="text-[#daa9cd] text-sm leading-relaxed">
+                <p className="text-[#f9f2c2] text-sm leading-relaxed">
                   {partner.description}
                 </p>
               </motion.div>
@@ -716,6 +1269,7 @@ const Index = () => {
     <Layout>
       <HeroSection />
       <AboutSection />
+      <BridgeSection /> 
       <CareerMatchCTASection />
       <LearnerFeaturesSection />
       <EmployerFeaturesSection />
