@@ -31,23 +31,22 @@ const footerSections = [
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background/80" role="contentinfo">
+    <footer className="bg-[#fbf9d8]" role="contentinfo">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="font-display text-xl font-bold text-background">
-              Baed<span className="text-brand-glow"> Connect</span>
+            <Link to="/" className="font-display text-xl font-bold text-[#5f1a37]">
+              Baed<span className="text-[#a0205b]"> Connect</span>
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-background/60">
+            <p className="mt-3 text-sm leading-relaxed text-[#5f1a37]/70">
               Education for employment is accessible. Empowering people with disabilities
               through skills, mentorship, and meaningful career opportunities.
             </p>
           </div>
-
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-display font-semibold text-background mb-4 text-sm uppercase tracking-wider">
+              <h3 className="font-display font-semibold text-[#5f1a37] mb-4 text-sm uppercase tracking-wider">
                 {section.title}
               </h3>
               <ul className="space-y-2.5">
@@ -55,7 +54,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-sm text-background/60 hover:text-brand-glow transition-colors"
+                      className="text-sm text-[#5f1a37]/70 hover:text-[#5f1a37] transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -65,12 +64,11 @@ export function Footer() {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-background/40">
+        <div className="mt-12 pt-8 border-t border-[#5f1a37]/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-[#5f1a37]/50">
             © {new Date().getFullYear()} Baed Connect — A product of Baed (بعض). All rights reserved.
           </p>
-          <p className="text-xs text-background/40">
+          <p className="text-xs text-[#5f1a37]/50">
             Built with accessibility at its core.
           </p>
         </div>

@@ -251,7 +251,7 @@ export function Navbar() {
             {user.role !== "Employer" && (
               <Link
                 to="/career-match"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 border-[#a0205b] bg-[#a0205b] hover:bg-[#8a1a4f] hover:border-[#8a1a4f] transition-all text-white text-xs font-bold h-[38px]"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 border-[#a0205b] bg-[#a0205b] hover:bg-[#8a1a4f] hover:border-[#8a1a4f] transition-all text-[#fff9c6] text-xs font-bold h-[38px]"
               >
                 <Sparkles className="h-3.5 w-3.5 shrink-0" />
                 <span>Career Match</span>
@@ -264,11 +264,11 @@ export function Navbar() {
                 onClick={toggleUserMenu}
                 className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl border-2 border-[#a0205b] bg-[#a0205b] hover:bg-[#8a1a4f] hover:border-[#8a1a4f] transition-all h-[38px]"
               >
-                <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-black bg-white/20 text-white border border-white/30">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-black bg-white/20 text-[#fff9c6] border border-[#fff9c6]">
                   {getInitials(user.name)}
                 </div>
                 <div className="text-left">
-                  <p className="text-xs font-bold text-white leading-none">{user.name.split(" ")[0]}</p>
+                  <p className="text-xs font-bold text-[#fff9c6] leading-none">{user.name.split(" ")[0]}</p>
                   <p className="text-xs text-white/70 leading-none mt-0.5">{user.role}</p>
                 </div>
                 <ChevronDown className={`h-3.5 w-3.5 text-white/70 transition-transform ${userMenuOpen ? "rotate-180" : ""}`} />

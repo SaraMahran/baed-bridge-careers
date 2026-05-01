@@ -182,11 +182,11 @@ You MUST respond in this exact JSON format and nothing else:
               <Sparkles className="h-4 w-4 text-[#fff279]" />
               Powered by Gemini AI
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#fff9c6] mb-6 leading-tight">
               Find Your Perfect<br />
               <span className="text-[#fff279]">Career Match</span>
             </h1>
-            <p className="text-lg text-white/75 leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-lg text-[#fff9c6] leading-relaxed max-w-2xl mx-auto mb-10">
               Tell us about yourself and our AI will match you to the right job, recommend
               the courses you need, and prepare you for your interview — all tailored to your
               unique background and accessibility needs.
@@ -413,7 +413,7 @@ You MUST respond in this exact JSON format and nothing else:
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                     className="rounded-xl"
                   >
-                    <Button onClick={handleMatch} disabled={loading} className="w-full h-14 text-base font-bold" size="lg">
+                    <Button onClick={handleMatch} disabled={loading} className="w-full h-14 text-[#fff9c6] font-bold" size="lg">
                       {loading ? (
                         <span className="flex items-center gap-3">
                           <Loader2 className="h-5 w-5 animate-spin" />

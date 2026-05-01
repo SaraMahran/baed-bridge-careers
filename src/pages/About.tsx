@@ -30,8 +30,8 @@ export default function About() {
       <section className="py-20 bg-[#5f1a37]">
         <div className="container max-w-4xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
-            <h2 className="text-3xl font-bold text-white mb-6">Our Vision</h2>
-            <p className="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-[#fff9c6] mb-6">Our Vision</h2>
+            <p className="text-[#fff9c6] text-lg leading-relaxed max-w-2xl mx-auto">
               A world where disability is never a barrier to professional success. Where inclusive hiring is the norm. Where digital content is accessible to everyone. We're making this real — one learner, one employer, one opportunity at a time.
             </p>
           </motion.div>

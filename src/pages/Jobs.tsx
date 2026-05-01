@@ -73,7 +73,7 @@ export default function Jobs() {
             <Button asChild size="lg" className="bg-[#fff279] text-[#5f1a37] hover:bg-[#fff060] font-bold">
               <Link to="/career-match">
                 <Sparkles className="mr-2 h-4 w-4" />
-                Try Career Match AI <ArrowRight className="ml-2 h-4 w-4" />
+                Try AI Career Match <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
