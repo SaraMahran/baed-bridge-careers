@@ -35,7 +35,7 @@ export default function ForEmployers() {
             Inclusive hiring isn't just the right thing to do — it's a competitive advantage. Access skilled, trained talent and build a workplace that reflects the diversity of your audience.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="mt-8">
-            <Button size="lg" className="bg-primary text-primary-foreground" asChild>
+            <Button size="lg" className="bg-primary text-[#f9f2c2]" asChild>
               <Link to="/jobs">Browse Candidates <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </motion.div>
@@ -49,7 +49,7 @@ export default function ForEmployers() {
             {benefits.map((b, i) => (
               <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={scaleIn} custom={i}
                 className="p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
-                <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300"><b.icon className="h-5 w-5" /></div>
+                <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-[#f9f2c2] transition-colors duration-300"><b.icon className="h-5 w-5" /></div>
                 <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{b.title}</h3>
                 <p className="text-sm text-muted-foreground">{b.desc}</p>
               </motion.div>

@@ -49,7 +49,7 @@ const getLearnerMenuItems = (email: string) => {
       href: data && data.savedCourses.length > 0 ? "/my-courses" : "/courses",
       desc: data && data.savedCourses.length > 0
         ? `${data.savedCourses.length} course${data.savedCourses.length !== 1 ? "s" : ""} in progress`
-        : "Browse courses",
+        : "Explore courses",
     },
     {
       icon: Briefcase,

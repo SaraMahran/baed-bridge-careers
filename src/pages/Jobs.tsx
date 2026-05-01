@@ -61,7 +61,11 @@ export default function Jobs() {
                       <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{job.posted}</span>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="shrink-0">View Details</Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="shrink-0 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                  >View Details</Button>
                 </div>
               </motion.div>
             ))}

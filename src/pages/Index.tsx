@@ -255,7 +255,7 @@ function CareerMatchCTASection() {
                     <Link to="/career-match"><Sparkles className="mr-2 h-5 w-5" />Try Career Match AI</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-[#f9f2c2]/40 text-[#f9f2c2] bg-transparent hover:bg-[#fff279] hover:text-[#5f1a37] hover:border-[#fff279]" asChild>
-                    <Link to="/courses">Browse Courses</Link>
+                    <Link to="/courses">Explore Courses</Link>
                   </Button>
                 </div>
               </motion.div>
@@ -381,7 +381,7 @@ function HowItWorksSection() {
       <div className="container">
         <motion.h2
           id="how-it-works-heading"
-          className="text-3xl md:text-4xl font-bold text-center mb-14"
+          className="text-3xl md:text-4xl font-bold mb-14 text-center"
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp} custom={0}
         >
@@ -396,9 +396,9 @@ function HowItWorksSection() {
               key={track.title}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
               variants={idx === 0 ? slideLeft : slideRight} custom={1}
-              className="p-8 rounded-2xl border border-border bg-[#f9f2c2]"
+              className="p-8 rounded-2xl border border-border bg-[#f9f2c2] text-center"
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-primary/10">
                   <track.icon className="h-5 w-5 text-primary" />
                 </div>
@@ -422,20 +422,92 @@ function HowItWorksSection() {
   );
 }
 
+// function MissionSection() {
+//   return (
+//     <section className="py-20 bg-card" aria-labelledby="mission-heading">
+//       <div className="container">
+//         <div className="max-w-3xl mx-auto text-center">
+//           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
+//             <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+//               <Heart className="h-10 w-10 text-primary mx-auto mb-6" />
+//             </motion.div>
+//             <h2 id="mission-heading" className="text-3xl md:text-4xl font-bold">Our Mission</h2>
+//             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+//               We believe that people with disabilities are powerful contributors to the digital economy. Baed Connect exists to bridge the gap between talent and opportunity — creating pathways to meaningful employment in content creation and digital work. This isn't charity. This is smart, inclusive business.
+//             </p>
+//           </motion.div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function MissionSection() {
+  const missionPoints = [
+    {
+      title: "The Evolution",
+      description: "As our first digital product, Baed Connect transforms years of inclusion advocacy into a scalable, tech-driven reality.",
+      icon: TrendingUp,
+    },
+    {
+      title: "The Foundation",
+      description: "We are starting with Content Marketing to build the infrastructure for an inclusive workforce, setting the blueprint for a future where no talent is left behind.",
+      icon: Building2,
+    },
+    {
+      title: "Smart Business",
+      description: "We believe that people with disabilities are powerful contributors to the digital economy. This isn't charity; it's a strategic shift toward a more innovative and inclusive Arab workforce.",
+      icon: Heart,
+    },
+  ];
+
   return (
     <section className="py-20 bg-card" aria-labelledby="mission-heading">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
-            <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            custom={0}
+            className="text-center mb-12"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
               <Heart className="h-10 w-10 text-primary mx-auto mb-6" />
             </motion.div>
-            <h2 id="mission-heading" className="text-3xl md:text-4xl font-bold">Our Mission</h2>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              We believe that people with disabilities are powerful contributors to the digital economy. Baed Connect exists to bridge the gap between talent and opportunity — creating pathways to meaningful employment in content creation and digital work. This isn't charity. This is smart, inclusive business.
+            <h2 id="mission-heading" className="text-3xl md:text-4xl font-bold mb-4">
+              Our Mission
+            </h2>
+            <p className="text-sm text-muted-foreground/70 tracking-wide">
+              Baed Connect is where our mission at Baed meets technology.
             </p>
           </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {missionPoints.map((point, i) => (
+              <motion.div
+                key={point.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                variants={scaleIn}
+                custom={i}
+                className="rounded-2xl bg-[#f9f2c2] border border-[#a0205b]/20 p-6 text-center group hover:shadow-lg transition-all duration-300"
+              >
+                <div className="inline-flex p-3 rounded-xl bg-[#a0205b]/10 text-[#5f1a37] mb-4 group-hover:bg-[#a0205b] group-hover:text-[#f9f2c2] transition-all duration-300">
+                  <point.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold text-[#5f1a37] text-lg mb-3">{point.title}</h3>
+                <p className="text-[#5f1a37]/80 text-sm leading-relaxed">
+                  {point.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -495,18 +567,108 @@ function WhyContentSection() {
   );
 }
 
+// function PartnershipSection() {
+//   return (
+//     <section className="py-20 bg-[#f9f2c2]" aria-labelledby="partner-heading">
+//       <div className="container">
+//         <div className="max-w-3xl mx-auto text-center">
+//           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
+//             <Handshake className="h-10 w-10 text-primary mx-auto mb-6" />
+//             <h2 id="partner-heading" className="text-3xl md:text-4xl font-bold">Partner With Us</h2>
+//             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+//               We're building a movement. NGOs, companies, and educational institutions — let's collaborate to create a more inclusive workforce across the Arab region.
+//             </p>
+//             <Button className="mt-8" size="lg" asChild>
+//               <Link to="/partnerships">
+//                 Explore Partnerships <ArrowRight className="ml-2 h-4 w-4" />
+//               </Link>
+//             </Button>
+//           </motion.div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function PartnershipSection() {
+  const partnerTypes = [
+    {
+      title: "NGOs",
+      description: "Collaborate to expand the reach and impact of accessible education and employment programs.",
+      icon: Heart,
+    },
+    {
+      title: "Forward-thinking Companies",
+      description: "Partner with us to access inclusive talent pipelines and demonstrate your commitment to diversity.",
+      icon: Building2,
+    },
+    {
+      title: "Educational Institutions",
+      description: "Join forces to develop curriculum, share resources, and create pathways for students with disabilities.",
+      icon: GraduationCap,
+    },
+  ];
+
   return (
     <section className="py-20 bg-[#f9f2c2]" aria-labelledby="partner-heading">
       <div className="container">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
-            <Handshake className="h-10 w-10 text-primary mx-auto mb-6" />
-            <h2 id="partner-heading" className="text-3xl md:text-4xl font-bold">Partner With Us</h2>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              We're building a movement. NGOs, companies, and educational institutions — let's collaborate to create a more inclusive workforce across the Arab region.
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            custom={0}
+            className="text-center mb-12"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Handshake className="h-10 w-10 text-primary mx-auto mb-6" />
+            </motion.div>
+            <h2 id="partner-heading" className="text-3xl md:text-4xl font-bold mb-4">
+              Partner With Us
+            </h2>
+            <p className="text-sm text-muted-foreground/70 tracking-wide">
+              We're building more than a platform; we're building a movement.
             </p>
-            <Button className="mt-8" size="lg" asChild>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {partnerTypes.map((partner, i) => (
+              <motion.div
+                key={partner.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                variants={scaleIn}
+                custom={i}
+                className="rounded-2xl bg-[#a0205b] border border-[#a0205b]/20 p-6 text-center group hover:shadow-lg transition-all duration-300"
+              >
+                <div className="inline-flex p-3 rounded-xl bg-[#a0205b]/10 text-[#daa9cd] mb-4 group-hover:bg-[#a0205b] group-hover:text-[#f9f2c2] transition-all duration-300">
+                  <partner.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold text-[#f9f2c2] text-lg mb-3">{partner.title}</h3>
+                <p className="text-[#daa9cd] text-sm leading-relaxed">
+                  {partner.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            custom={3}
+            className="text-center mt-10"
+          >
+            <p className="text-[#5f1a37] text-base leading-relaxed mb-6">
+              Collaborate for Impact: Whether you're an NGO, a forward-thinking company, or an educational institution, let's join forces to redefine professional independence across the region.
+            </p>
+            <Button className="mt-4 bg-primary text-[#f9f2c2] hover:bg-primary/90" size="lg" asChild>
               <Link to="/partnerships">
                 Explore Partnerships <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

@@ -37,7 +37,7 @@ export default function MyCourses() {
               <p className="text-lg font-semibold text-foreground mb-2">No courses yet</p>
               <p className="text-muted-foreground mb-6 text-sm">Browse our catalog to find your first course.</p>
               <Link to="/courses" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors">
-                Browse Courses <ArrowRight className="h-4 w-4" />
+                Explore Courses <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
           ) : (
