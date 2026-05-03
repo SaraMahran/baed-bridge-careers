@@ -93,15 +93,15 @@ const testimonials = [
 ];
 
 const brandLogos = [
-  { src: ideaLogo, name: "IDEA Group" },
-  { src: maanLogo, name: "MAAN" },
+  { src: ideaLogo, name: "IDEA GROUP EGYPT" },
+  { src: maanLogo, name: "Ma3an Digital" },
   { src: gFastLogo, name: "G-Fast" },
-  { src: familyMedicalLogo, name: "Family Medical" },
-  { src: dragonLogo, name: "Dragon" },
-  { src: amcLogo, name: "AMC" },
+  { src: familyMedicalLogo, name: "Family Medical Polyclinics" },
+  { src: dragonLogo, name: "Dragon Island Park" },
+  { src: amcLogo, name: "AMC Cookware" },
   { src: lavenderLogo, name: "Lavender Events" },
-  { src: unicaLogo, name: "UNICA" },
-  { src: mummersLogo, name: "MUMMERS" },
+  { src: unicaLogo, name: "Unica Research" },
+  { src: mummersLogo, name: "Mumerz.com" },
 ];
 
 export default function About() {
@@ -278,7 +278,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── LOGO MARQUEE ── */}
+      {/* ── LOGO MARQUEE ──
       <section className="py-20 bg-card overflow-hidden">
         <div className="container max-w-5xl mx-auto">
           <Divider />
@@ -296,6 +296,44 @@ export default function About() {
                   <img src={brand.src} alt={brand.name} className="w-full h-full object-cover" />
                 </div>
                 <span className="text-[10px] font-semibold text-[#5f1a37]/60 max-w-[80px] text-center leading-tight">{brand.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 25s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section> */}
+      {/* ── LOGO MARQUEE ── */}
+      <section className="py-20 bg-card overflow-hidden">
+        <div className="container max-w-5xl mx-auto">
+          <Divider />
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary/70 mb-3">Our Ecosystem of Trust</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">25+ Brands Served</h2>
+            <p className="text-muted-foreground text-sm">11 Industries · 6 Countries · Recognized among Top 100 Startups in Egypt</p>
+          </motion.div>
+        </div>
+        <div className="relative">
+          <div className="flex gap-8 animate-marquee whitespace-nowrap px-8">
+            {[...brandLogos, ...brandLogos].map((brand, i) => (
+              <div key={i} className="inline-flex flex-col items-center gap-2 shrink-0 w-[90px]">
+                <div className="w-16 h-16 rounded-full bg-[#f9f2c2] border-2 border-[#a0205b]/20 overflow-hidden flex items-center justify-center shadow-md hover:shadow-lg hover:border-[#a0205b]/50 transition-all duration-300">
+                  <img src={brand.src} alt={brand.name} className="w-full h-full object-cover" />
+                </div>
+                {/* Updated text wrapper with word wrapping */}
+                <span className="text-[10px] font-semibold text-[#5f1a37]/60 w-[90px] text-center leading-tight break-words whitespace-normal">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>

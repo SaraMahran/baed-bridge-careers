@@ -60,7 +60,7 @@ export default function Contact() {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "hello@baedconnect.com",
+                  value: "reem@baedcontent.com",
                   desc: "We respond within 48 hours",
                   i: 1,
                 },
@@ -100,14 +100,14 @@ export default function Contact() {
               <motion.div
                 initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={fadeUp} custom={4}
-                className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] text-white mt-6"
+                className="p-5 rounded-2xl bg-gradient-to-br from-[#5f1a37] to-[#a0205b] text-[#fff279] mt-6"
               >
                 <BookOpen className="h-6 w-6 text-[#fff279] mb-3" />
                 <p className="font-bold text-sm mb-1">Looking to join?</p>
-                <p className="text-white/70 text-xs leading-relaxed mb-3">
+                <p className="text-[#fff279]/70 text-xs leading-relaxed mb-3">
                   Sign up free and start your career journey today.
                 </p>
-                <a href="/get-started" className="inline-flex items-center gap-1 text-xs font-bold text-[#fff279] hover:text-white transition-colors">
+                <a href="/get-started" className="inline-flex items-center gap-1 text-xs font-bold text-[#fff279] hover:text-[#fff279] transition-colors">
                   Get started free →
                 </a>
               </motion.div>

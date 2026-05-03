@@ -35,7 +35,7 @@ export default function Mentorship() {
             {mentorshipTypes.map((m, i) => (
               <motion.div key={m.title} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={scaleIn} custom={i}
                 className="p-6 rounded-2xl bg-background border border-border text-center hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
-                <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300"><m.icon className="h-6 w-6" /></div>
+                <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-[#fff279] transition-colors duration-300"><m.icon className="h-6 w-6" /></div>
                 <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{m.title}</h3>
                 <p className="text-sm text-muted-foreground">{m.desc}</p>
               </motion.div>
