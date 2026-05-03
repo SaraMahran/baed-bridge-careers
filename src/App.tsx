@@ -27,7 +27,7 @@ import MyListings from "./pages/MyListings";
 import JobDetail from "./pages/JobDetail";
 import PostJob from "./pages/PostJob";
 import JobPreview from "./pages/JobPreview";
-
+import Pricing from "./pages/Pricing";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +64,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           <Route path="/post-job" element={<PostJob />} />
           <Route path="/job-preview" element={<JobPreview />} />
+          <Route path="/pricing" element={<Pricing />} />
 
         </Routes>
       </BrowserRouter>

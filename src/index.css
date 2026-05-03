@@ -84,6 +84,10 @@
   .skip-link:focus { @apply top-4; }
 }
 
+.section-divider {
+  @apply w-24 bg-[#a0205b]/30 mx-auto;
+  height: 2px;
+}
 @layer utilities {
   .gradient-hero {
     background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--background)) 40%, hsl(var(--accent) / 0.2) 100%);

@@ -30,8 +30,10 @@ const dropdowns = [
 
 const standaloneLinks = [
   { label: "About", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Partners", href: "/partnerships" },
   { label: "Contact", href: "/contact" },
+  
 ];
 
 const getLearnerMenuItems = (email: string) => {
@@ -182,7 +184,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1 mx-auto">
           {dropdowns.map((dropdown) => (
             <div key={dropdown.label} className="relative">
               <button
@@ -231,7 +233,7 @@ export function Navbar() {
 
         {/* Desktop auth — logged out */}
         {!user ? (
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
             <Link
               to="/login"
               className="px-3 py-2 text-sm font-medium rounded-md text-navbar-foreground hover:text-primary hover:bg-primary/5 transition-colors"
@@ -246,7 +248,7 @@ export function Navbar() {
             </Link>
           </div>
         ) : (
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
             {/* Career Match button — same height/padding as profile button */}
             {user.role !== "Employer" && (
               <Link
