@@ -8,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+
 // ── Asset imports ──
 import teamPhoto from "@/assets/Reem and Atef.jpeg";
 
@@ -46,6 +47,8 @@ const scaleIn = {
 };
 
 const Divider = () => <div className="section-divider mb-12" />;
+
+const YellowDivider = () => <div className="w-24 bg-[#fff279]/50 mx-auto mb-12" style={{ height: 2 }} />;
 
 const values = [
   { icon: Heart, title: "Empowerment", desc: "We believe in the potential of every individual to contribute meaningfully to the digital economy." },
@@ -239,7 +242,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── FOUNDING TEAM ── */}
+      {/* ── FOUNDING TEAM ── }
       <section className="py-20">
         <div className="container max-w-5xl mx-auto">
           <Divider />
@@ -277,6 +280,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      */}
 
       {/* ── LOGO MARQUEE ──
       <section className="py-20 bg-card overflow-hidden">
@@ -424,7 +429,7 @@ export default function About() {
       {/* ── VISION ── */}
       <section className="py-20 bg-[#5f1a37]">
         <div className="container max-w-4xl text-center">
-          <Divider />
+          <YellowDivider />
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={0}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[#daa9cd] mb-3">Our Vision</p>
             <h2 className="text-3xl font-bold text-[#fff279] mb-6">A world where disability is never a barrier to professional success.</h2>
